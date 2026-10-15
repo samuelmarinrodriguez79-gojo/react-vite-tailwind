@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #64223f;
+  background: #fff8fa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --ink: #64223f;
+  --pink: #ca3671;
+  --pink-dark: #a9215b;
+  --pink-light: #fce5ed;
+  --muted: #7d606c;
+  --paper: #fffafd;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; overflow-x: clip; scroll-behavior: smooth; }
+body { min-width: 320px; min-height: 100vh; margin: 0; overflow-x: clip; background: radial-gradient(ellipse at 15% 18%, #fde3ed 0, transparent 35%), #fff8fa; }
+button, a { font: inherit; }
+button { color: inherit; }
+button:focus-visible, a:focus-visible { outline: 3px solid #7c1645; outline-offset: 4px; }
+
+.site-shell { width: min(1040px, calc(100% - 64px)); min-height: 100vh; margin: 0 auto; display: flex; flex-direction: column; }
+.topbar { min-height: 75px; display: flex; align-items: center; justify-content: space-between; }
+.wordmark { color: var(--ink); text-decoration: none; font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; letter-spacing: -.5px; }
+.wordmark-heart { color: var(--pink); margin-right: 6px; }
+.topbar-note { color: var(--muted); font-size: 12px; font-weight: 600; }
+.topbar-note span { color: var(--pink-dark); }
+
+.page-nav { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; gap: 5px; width: fit-content; max-width: 100%; margin: 0 auto 22px; padding: 6px; border: 1px solid #f4d3df; border-radius: 999px; background: #fffafd; box-shadow: 0 8px 28px #8c33510b; }
+.nav-step { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 0 17px; border: 0; border-radius: 999px; background: transparent; color: #76515f; cursor: pointer; transition: color .2s, background .2s, transform .2s; }
+.nav-step:hover { color: var(--pink-dark); transform: translateY(-1px); }
+.nav-step.is-active { background: var(--pink); color: white; box-shadow: 0 5px 14px #ca367139; }
+.nav-number { font-size: 10px; font-weight: 800; }
+.nav-label { font-size: 12px; font-weight: 700; white-space: nowrap; }
+
+.page-content { flex: 1; min-width: 0; min-height: 560px; display: flex; align-items: stretch; animation: page-in .4s ease both; }
+@keyframes page-in { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
+.welcome-page, .story-page, .memories-page, .letter-page, .game-page { width: 100%; min-width: 0; }
+.eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 19px; color: #ffe1eb; font-size: 11px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
+.eyebrow-line { width: 25px; height: 2px; flex: 0 0 auto; background: currentColor; }
+h1, h2 { margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 700; }
+h1 { color: var(--ink); font-size: clamp(48px, 7vw, 82px); line-height: .99; letter-spacing: -2.8px; }
+h1 em, h2 em { color: var(--pink-dark); font-weight: 700; }
+
+/* Bienvenida: panel rosa de alto impacto, inspirado en la captura. */
+.welcome-page { position: relative; min-height: 570px; display: grid; grid-template-columns: 1.04fr .82fr; align-items: center; gap: 5%; overflow: hidden; padding: 58px clamp(32px, 7vw, 82px); border-radius: 34px; background: linear-gradient(140deg, #df4d83, #c42f6c 62%, #ac255f); color: white; box-shadow: 0 25px 65px #b529671f; }
+.welcome-page::before, .welcome-page::after { position: absolute; z-index: 0; color: #f987ad; content: '♥'; line-height: 1; pointer-events: none; }
+.welcome-page::before { right: -35px; bottom: -100px; font-size: 330px; opacity: .24; transform: rotate(-18deg); }
+.welcome-page::after { top: 26px; right: 44%; font-size: 34px; opacity: .72; transform: rotate(13deg); }
+.welcome-copy, .welcome-art { position: relative; z-index: 1; }
+.welcome-copy { padding-bottom: 15px; }
+.welcome-copy .eyebrow { color: #ffe4ed; }
+.welcome-copy h1 { color: white; font-size: clamp(59px, 8vw, 92px); }
+.welcome-copy h1 em { color: #ffe6ed; }
+.intro-copy { max-width: 425px; margin: 24px 0 28px; color: #fff0f5; font-size: 16px; line-height: 1.8; }
+.next-button { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 18px; padding: 0 25px; border: 0; border-radius: 999px; background: white; color: #9d2455; cursor: pointer; font-size: 14px; font-weight: 800; box-shadow: 0 9px 25px #771b431c; transition: transform .2s, box-shadow .2s; }
+.next-button:hover { transform: translateY(-3px); box-shadow: 0 14px 30px #771b4333; }
+.next-button span { font-size: 17px; }
+.date-note { display: flex; align-items: center; gap: 11px; margin-top: 33px; color: #ffe0ea; font-size: 10px; font-weight: 700; letter-spacing: .14em; }
+.date-note span { color: white; font-size: 17px; }
+.date-note i { width: 25px; height: 1px; background: #f4b6cb; }
+.welcome-art { width: min(100%, 330px); justify-self: center; padding: 0 16px 20px 0; }
+.photo-frame { overflow: hidden; background: #f7dbe5; }
+.photo-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.hero-frame { height: 390px; padding: 9px; border: 1px solid #ffffff8c; border-radius: 190px 190px 26px 26px; background: #fff8fb; box-shadow: 0 18px 45px #6c16452e; transform: rotate(2deg); }
+.hero-frame img { border-radius: 180px 180px 19px 19px; object-position: center 42%; }
+.round-stamp { position: absolute; right: -10px; bottom: 33px; width: 89px; height: 89px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 2px solid #d74c7d; border-radius: 50%; background: #fffafd; color: #a9215b; transform: rotate(9deg); }
+.round-stamp span { font-size: 9px; font-weight: 700; }
+.round-stamp strong { font-family: 'Playfair Display', Georgia, serif; font-size: 33px; line-height: 1.05; }
+.scribble-heart { position: absolute; top: -29px; right: 4px; color: white; font-family: Georgia, serif; font-size: 52px; transform: rotate(13deg); }
+.image-caption { position: absolute; bottom: -1px; left: 8px; color: white; font-family: 'Playfair Display', Georgia, serif; font-size: 13px; font-style: italic; }
+
+/* Historia y recuerdos. */
+.story-page { min-height: 570px; display: grid; grid-template-columns: 1fr .85fr; align-items: stretch; gap: 25px; padding: 22px 0; }
+.story-heading { position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; overflow: hidden; padding: 50px clamp(28px, 5vw, 62px); border-radius: 30px; background: linear-gradient(145deg, #db4a80, #b82b66); box-shadow: 0 20px 48px #a72a6019; }
+.story-heading::after { position: absolute; right: -10px; bottom: -77px; color: #f68db0; content: '♡'; font-size: 230px; opacity: .27; transform: rotate(-18deg); pointer-events: none; }
+.story-heading > * { position: relative; z-index: 1; }
+.story-heading .eyebrow { color: #ffe4ed; }
+.story-heading h1 { color: white; font-size: clamp(48px, 6vw, 70px); }
+.story-heading h1 em { color: #ffe1ea; }
+.story-heading > p:not(.eyebrow) { max-width: 410px; margin: 24px 0 28px; color: #fff0f5; font-size: 15px; line-height: 1.85; }
+.story-heading .next-button { position: relative; z-index: 2; }
+.story-card { position: relative; width: min(100%, 340px); align-self: center; justify-self: center; padding: 19px; border: 1px solid #f7d9e3; border-radius: 25px; background: #fffafd; box-shadow: 0 16px 45px #8e315414; transform: rotate(1.5deg); }
+.card-index { display: block; margin-bottom: 12px; color: #8b5368; font-size: 10px; font-weight: 800; letter-spacing: .14em; }
+.story-frame { height: 345px; border-radius: 17px; }
+.story-frame img { object-position: center 30%; }
+.handwritten-note { position: absolute; right: -37px; bottom: 76px; padding: 10px 14px; border-radius: 12px; background: white; color: #a9215b; font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; font-style: italic; line-height: 1.2; box-shadow: 0 8px 20px #84244c18; transform: rotate(-8deg); }
+.handwritten-note span { font-size: 24px; }
+.story-card-bottom { display: flex; justify-content: space-between; margin-top: 14px; color: #76515f; font-size: 9px; font-weight: 700; letter-spacing: .1em; }
+.story-card-bottom span:last-child { color: var(--pink); font-size: 15px; }
+
+.memories-page { min-height: 570px; padding: 44px clamp(22px, 5vw, 60px); border-radius: 32px; background: linear-gradient(145deg, #dc4b82, #bd2d69); box-shadow: 0 20px 55px #a72a6019; }
+.memories-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 30px; }
+.memories-heading .eyebrow { margin-bottom: 16px; }
+.memories-heading h1 { color: white; font-size: clamp(45px, 5.8vw, 66px); }
+.memories-heading h1 em { color: #ffe1ea; }
+.memories-heading > p { max-width: 300px; margin: 0 0 5px; color: #fff0f5; font-size: 14px; line-height: 1.8; }
+.memory-grid { display: grid; grid-template-columns: 1.14fr .86fr .86fr; align-items: start; gap: 18px; }
+.memory-card { min-width: 0; margin: 0; }
+.memory-card .photo-frame { height: 220px; padding: 7px; border-radius: 19px; background: white; box-shadow: 0 12px 26px #7b1c492b; }
+.memory-card .photo-frame img { border-radius: 13px; }
+.memory-card img { object-position: center 40%; }
+.memory-1 { transform: rotate(-2deg); }
+.memory-1 .photo-frame { height: 246px; }
+.memory-2 { margin-top: 22px; transform: rotate(1.5deg); }
+.memory-3 { margin-top: 5px; transform: rotate(-1deg); }
+.memory-3 img { object-position: center 30%; }
+.memory-card figcaption { display: flex; min-width: 0; gap: 8px; align-items: flex-start; margin-top: 14px; color: white; font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 700; font-style: italic; line-height: 1.4; }
+.memory-card figcaption span { flex: 0 0 auto; color: #ffe3ec; font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 800; font-style: normal; }
+.memories-bottom { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 25px; }
+.memories-bottom > span { color: #ffe6ee; font-size: 10px; font-weight: 800; letter-spacing: .17em; }
+
+/* Carta y juego: una zona clara sobre fondo rosa. */
+.letter-page { position: relative; min-height: 570px; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; padding: 38px 20px; }
+.letter-page::before { position: absolute; inset: 15px 0; border-radius: 32px; background: #fffafd; content: ''; box-shadow: 0 18px 50px #a72a6011; }
+.letter-paper { position: relative; width: min(100%, 680px); padding: 43px clamp(25px, 7vw, 72px) 29px; border: 1px solid #f3cfdd; border-radius: 24px; background: white; box-shadow: 0 13px 37px #8e315411; }
+.letter-paper::before { position: absolute; inset: 9px; border: 1px dashed #f3c8d8; border-radius: 17px; content: ''; pointer-events: none; }
+.letter-paper > * { position: relative; }
+.letter-paper .eyebrow { justify-content: center; color: #b72b63; }
+.letter-paper h1 { color: var(--ink); text-align: center; font-size: clamp(43px, 6vw, 62px); }
+.letter-body { max-width: 480px; margin: 24px auto 23px; color: #674653; font-family: 'Playfair Display', Georgia, serif; font-size: 16px; line-height: 1.85; }
+.letter-body p { margin: 0 0 13px; }
+.letter-body .letter-signoff { margin-top: 20px; }
+.letter-signoff span { color: #a9215b; font-weight: 700; font-style: italic; }
+.letter-bottom { display: flex; justify-content: space-between; gap: 12px; padding-top: 14px; border-top: 1px solid #f3dce5; color: #76515f; font-size: 9px; font-weight: 800; letter-spacing: .12em; }
+.letter-decoration { position: absolute; top: 5px; right: 9%; color: #f5b6cb; font-family: Georgia, serif; font-size: 90px; transform: rotate(12deg); }
+.restart-button { position: relative; margin-top: 20px; padding: 11px 18px; border: 0; border-radius: 999px; background: #fce5ed; color: #a9215b; cursor: pointer; font-size: 12px; font-weight: 800; }
+.restart-button span { margin-left: 7px; font-size: 15px; }
+
+.game-page { position: relative; isolation: isolate; display: grid; width: 100%; max-width: 1000px; grid-template-columns: .85fr 1fr; align-content: center; align-items: center; gap: 35px; margin: auto; padding: 44px 25px 54px; }
+.game-heading, .love-game-card { position: relative; z-index: 1; }
+.game-heading { padding: 36px 0; }
+.game-heading .eyebrow { color: #b72b63; }
+.game-heading h1 { font-size: clamp(48px, 6vw, 70px); }
+.game-heading h1 em { color: #c93668; }
+.game-heading > p:not(.eyebrow) { max-width: 355px; margin: 21px 0 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+.floating-heart { position: absolute; z-index: 0; color: #e67b9e; pointer-events: none; animation: heart-drift 4s ease-in-out infinite; }
+.floating-heart-one { top: 10%; left: 43%; font-size: 30px; opacity: .68; }
+.floating-heart-two { right: 1%; bottom: 15%; font-size: 46px; animation-delay: -1.3s; opacity: .74; }
+.floating-heart-three { bottom: 8%; left: 5%; font-size: 20px; animation-delay: -2.4s; opacity: .6; }
+@keyframes heart-drift { 0%, 100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-12px) rotate(8deg); } }
+.love-game-card { min-width: 0; padding: clamp(25px, 4vw, 39px); border: 1px solid #f1c0d1; border-radius: 27px; background: white; box-shadow: 0 20px 55px #8e31541a; }
+.game-card-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.game-progress { margin: 0; color: #8f244f; font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+.game-score { display: flex; gap: 7px; }
+.score-heart { color: #efc6d4; font-size: 15px; transition: color .25s, transform .25s; }
+.score-heart.is-filled { color: var(--pink); transform: scale(1.12); }
+.game-instruction { margin: 27px 0 19px; color: var(--ink); font-family: 'Playfair Display', Georgia, serif; font-size: 23px; font-weight: 700; }
+.scrambled-letters { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(6px, 1.2vw, 11px); }
+.letter-tile { display: grid; width: clamp(42px, 5vw, 54px); aspect-ratio: 1; place-items: center; border: 2px solid #dd7294; border-radius: 13px; background: #fff6f9; color: #941d4b; box-shadow: 0 5px 12px #c6587b20; font-family: 'Playfair Display', Georgia, serif; font-size: 25px; font-weight: 800; }
+.game-hint { margin: 20px 0; color: #68424f; font-size: 14px; font-weight: 600; line-height: 1.65; }
+.game-hint span { margin-right: 5px; color: var(--pink); font-size: 16px; }
+.answer-form { display: flex; gap: 9px; }
+.answer-form input { width: 100%; min-width: 0; min-height: 48px; padding: 13px 14px; border: 1px solid #d99aae; border-radius: 12px; outline: none; background: white; color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; transition: border-color .2s, box-shadow .2s; }
+.answer-form input:focus { border-color: var(--pink); box-shadow: 0 0 0 3px #d94f7b1c; }
+.answer-form input::placeholder { color: #81636e; }
+.game-button { min-height: 48px; display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; gap: 9px; padding: 0 17px; border: 0; border-radius: 999px; background: #c93668; color: white; cursor: pointer; font-size: 13px; font-weight: 800; transition: transform .2s, background .2s; }
+.game-button:hover:not(:disabled) { transform: translateY(-2px); background: #a9215b; }
+.game-button:disabled { cursor: default; opacity: .65; }
+.game-feedback { margin: 16px 0 0; font-size: 13px; font-weight: 700; line-height: 1.6; }
+.game-feedback.success { color: #90244f; }
+.game-feedback.try-again { color: #76515f; }
+.next-riddle-button { display: block; margin: 17px 0 0 auto; padding: 10px 2px 5px 10px; border: 0; background: transparent; color: #9c1e51; cursor: pointer; font-size: 13px; font-weight: 800; }
+.next-riddle-button span { margin-left: 8px; }
+.game-finish { padding: 8px 0 4px; text-align: center; }
+.finish-heart { display: inline-block; margin-bottom: 15px; color: var(--pink); font-size: 38px; animation: heart-pop .7s ease both; }
+@keyframes heart-pop { 0% { transform: scale(.4); } 70% { transform: scale(1.25); } 100% { transform: scale(1); } }
+.game-finish .game-progress { margin-bottom: 15px; }
+.game-finish h2 { color: var(--ink); font-size: clamp(37px, 5vw, 48px); line-height: 1.08; }
+.game-finish h2 em { color: var(--pink-dark); }
+.game-finish > p:not(.game-progress) { max-width: 320px; margin: 16px auto 22px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.game-footer-note { grid-column: 1 / -1; margin: -20px 0 0; color: #76515f; text-align: center; font-size: 12px; font-weight: 600; }
+.game-footer-note span { margin-right: 6px; color: var(--pink); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+
+.site-footer { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 18px; padding-right: 90px; border-top: 1px solid #f0d3de; color: #76515f; font-family: 'Playfair Display', Georgia, serif; font-size: 12px; font-weight: 600; font-style: italic; }
+.footer-heart { color: var(--pink); font-family: 'DM Sans', sans-serif; font-size: 15px; font-style: normal; }
+
+/* Botón musical flotante, como el icono redondo de la referencia. */
+.music-player { position: fixed; right: max(22px, calc((100vw - 1120px) / 2)); bottom: 26px; z-index: 20; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.music-player audio { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.music-toggle { position: relative; display: grid; width: 68px; height: 68px; place-items: center; border: 0; border-radius: 50%; background: white; color: #a9215b; cursor: pointer; font-size: 27px; box-shadow: 0 12px 32px #78244930; transition: transform .2s, color .2s, background .2s; }
+.music-toggle:hover { transform: translateY(-3px) scale(1.04); }
+.music-toggle span { line-height: 1; }
+.music-player.is-playing .music-toggle { background: #c93668; color: white; }
+.music-player.is-playing .music-toggle::after { position: absolute; inset: -6px; border: 2px solid #d3447a; border-radius: 50%; content: ''; animation: music-pulse 1.8s ease-out infinite; }
+@keyframes music-pulse { from { opacity: .7; transform: scale(.92); } to { opacity: 0; transform: scale(1.24); } }
+.music-now-playing { max-width: 180px; padding: 7px 11px; border-radius: 999px; background: white; color: #762248; box-shadow: 0 6px 20px #7824491c; font-size: 10px; font-weight: 800; }
+
+@media (min-width: 1300px) { .site-shell { width: min(1040px, calc(100% - 96px)); } }
+
+@media (max-width: 760px) {
+  .site-shell { width: calc(100% - 28px); }
+  .topbar { min-height: 66px; }
+  .wordmark { font-size: 20px; }
+  .topbar-note { max-width: 180px; text-align: right; font-size: 10px; }
+  .page-nav { width: 100%; justify-content: space-between; gap: 2px; margin-bottom: 14px; padding: 4px; }
+  .nav-step { min-width: 0; min-height: 43px; flex: 1; flex-direction: column; gap: 1px; padding: 3px 2px; }
+  .nav-number { font-size: 9px; }
+  .nav-label { font-size: clamp(8px, 2.4vw, 10px); }
+  .page-content { min-height: auto; }
+  .welcome-page { min-height: 0; grid-template-columns: 1fr; gap: 32px; padding: 54px 25px 47px; border-radius: 0 0 32px 32px; text-align: center; }
+  .welcome-copy { padding-bottom: 0; }
+  .welcome-copy .eyebrow, .story-heading .eyebrow, .game-heading .eyebrow { justify-content: center; }
+  .welcome-copy h1 { font-size: clamp(58px, 15vw, 82px); }
+  .intro-copy { margin: 21px auto 24px; font-size: 15px; }
+  .date-note { justify-content: center; margin-top: 25px; font-size: 9px; }
+  .welcome-art { width: min(75%, 300px); }
+  .hero-frame { height: 350px; }
+  .round-stamp { right: -20px; bottom: 28px; width: 76px; height: 76px; }
+  .round-stamp strong { font-size: 28px; }
+  .story-page { grid-template-columns: 1fr; gap: 20px; padding: 0 0 22px; }
+  .story-heading { min-height: 440px; align-items: center; padding: 44px 25px; border-radius: 0 0 30px 30px; text-align: center; }
+  .story-heading h1 { font-size: clamp(50px, 13vw, 70px); }
+  .story-heading > p:not(.eyebrow) { margin: 21px auto 24px; font-size: 14px; }
+  .story-card { width: min(83%, 335px); margin: 8px auto 14px; }
+  .story-frame { height: 330px; }
+  .handwritten-note { right: -28px; font-size: 15px; }
+  .memories-page { padding: 39px 20px 28px; border-radius: 0 0 30px 30px; }
+  .memories-heading { display: block; margin-bottom: 25px; text-align: center; }
+  .memories-heading .eyebrow { justify-content: center; }
+  .memories-heading h1 { font-size: clamp(44px, 11vw, 60px); }
+  .memories-heading > p { margin: 16px auto 0; font-size: 13px; }
+  .memory-grid { grid-template-columns: 1fr 1fr; gap: 16px 12px; }
+  .memory-1 { grid-column: 1 / -1; width: 78%; justify-self: center; }
+  .memory-1 .photo-frame { height: 250px; }
+  .memory-2, .memory-3 { margin-top: 5px; }
+  .memory-card .photo-frame { height: 190px; }
+  .memory-card figcaption { gap: 6px; font-size: 12px; }
+  .memories-bottom { align-items: center; flex-direction: column; margin-top: 22px; }
+  .letter-page { min-height: auto; padding: 28px 3px; }
+  .letter-page::before { inset: 8px 0; }
+  .letter-paper { padding: 38px 26px 25px; }
+  .letter-body { font-size: 15px; }
+  .letter-decoration { top: -5px; right: 2%; font-size: 65px; }
+  .game-page { grid-template-columns: 1fr; gap: 25px; padding: 27px 3px 43px; }
+  .game-heading { padding: 27px 20px 24px; text-align: center; }
+  .game-heading h1 { font-size: clamp(50px, 12vw, 66px); }
+  .game-heading > p:not(.eyebrow) { margin: 17px auto 0; font-size: 14px; }
+  .love-game-card { padding: 26px 21px; border-radius: 23px; }
+  .game-footer-note { margin: -7px 0 0; font-size: 11px; }
+  .floating-heart-one { top: 26%; left: 1%; }
+  .floating-heart-two { right: 0; bottom: 19%; }
+  .site-footer { padding-right: 75px; font-size: 10px; }
+  .music-player { right: 16px; bottom: 19px; }
+  .music-toggle { width: 58px; height: 58px; font-size: 24px; }
+}
+
+@media (max-width: 420px) {
+  .site-shell { width: calc(100% - 20px); }
+  .topbar-note { max-width: 145px; font-size: 9px; line-height: 1.5; }
+  .page-nav { gap: 1px; }
+  .nav-label { font-size: 8px; }
+  .welcome-page { padding: 46px 18px 40px; }
+  .welcome-art { width: 77%; }
+  .hero-frame { height: 315px; }
+  .story-heading { min-height: 415px; padding: 38px 20px; }
+  .story-frame { height: 290px; }
+  .memory-1 .photo-frame { height: 215px; }
+  .memory-card .photo-frame { height: 155px; }
+  .memory-card figcaption { font-size: 11px; }
+  .letter-paper { padding: 35px 21px 23px; }
+  .letter-body { font-size: 14px; }
+  .letter-bottom { font-size: 8px; }
+  .game-page { gap: 20px; }
+  .love-game-card { padding: 22px 16px; }
+  .game-instruction { margin-top: 22px; font-size: 20px; }
+  .letter-tile { width: 38px; border-radius: 11px; font-size: 22px; }
+  .answer-form { flex-direction: column; }
+  .answer-form input, .game-button { min-height: 48px; width: 100%; }
+  .music-player { right: 12px; bottom: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
