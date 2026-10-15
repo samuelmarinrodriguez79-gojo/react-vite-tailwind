@@ -312,7 +312,7 @@ function MusicPlayer() {
         onError={() => setAudioMissing(true)}
         preload="auto"
       >
-        <source src="/audio/publicaudiom-anil-emre-daldal.mp3.mp3" type="audio/mpeg" />
+        <source src={`${import.meta.env.BASE_URL}audio/publicaudiom-anil-emre-daldal.mp3.mp3`} type="audio/mpeg" />
         Tu navegador no puede reproducir este archivo de audio.
       </audio>
       <button
